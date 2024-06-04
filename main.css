@@ -1,0 +1,267 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap");
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Spartan", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #3a4663;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.calculator {
+  color: #fff;
+  max-height: 78.67vh;
+}
+.calculator__header {
+  display: flex;
+  justify-content: space-between;
+}
+.calculator__header__title {
+  font-size: 3.2rem;
+  line-height: 3.6rem;
+  letter-spacing: -0.533333px;
+  padding-top: 0.8rem;
+}
+.calculator__header__toggle-switch {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.calculator__header__toggle-switch__title {
+  font-size: 1.2rem;
+  line-height: 1.3rem;
+  letter-spacing: 1px;
+  position: absolute;
+  bottom: 0.5rem;
+  left: -7.2rem;
+}
+.calculator__header__toggle-switch .switcher {
+  width: 7.1rem;
+}
+.calculator__header__toggle-switch .switcher__numbers {
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.2rem;
+  line-height: 1.3rem;
+  padding-bottom: 5px;
+}
+.calculator__header__toggle-switch .switcher .switch {
+  position: relative;
+  height: 2.6rem;
+}
+.calculator__header__toggle-switch .switcher .switch #switch1,
+.calculator__header__toggle-switch .switcher .switch #switch2,
+.calculator__header__toggle-switch .switcher .switch #switch3 {
+  position: absolute;
+  z-index: 9;
+  -webkit-appearance: none;
+}
+.calculator__header__toggle-switch .switcher .switch #switch1 + label::after,
+.calculator__header__toggle-switch .switcher .switch #switch2 + label::after,
+.calculator__header__toggle-switch .switcher .switch #switch3 + label::after {
+  position: absolute;
+  content: "";
+  width: 25px;
+  height: 2.6rem;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  cursor: pointer;
+}
+.calculator__header__toggle-switch .switcher .switch #switch1 + label::after {
+  left: 0;
+}
+.calculator__header__toggle-switch
+  .switcher
+  .switch
+  #switch1:checked
+  ~ .switch__inner::after {
+  left: 5px;
+  transition: left 250ms ease-in-out;
+}
+.calculator__header__toggle-switch .switcher .switch #switch2 + label::after {
+  left: 22px;
+}
+.calculator__header__toggle-switch
+  .switcher
+  .switch
+  #switch2:checked
+  ~ .switch__inner::after {
+  left: 25px;
+  transition: left 250ms ease-in-out;
+}
+.calculator__header__toggle-switch .switcher .switch #switch3 + label::after {
+  left: 45px;
+}
+.calculator__header__toggle-switch
+  .switcher
+  .switch
+  #switch3:checked
+  ~ .switch__inner::after {
+  left: 50px;
+  transition: left 250ms ease-in-out;
+}
+.calculator__header__toggle-switch .switcher .switch__inner {
+  height: 2.6rem;
+  background: #242d44;
+  border-radius: 13px;
+}
+.calculator__header__toggle-switch .switcher .switch__inner::after {
+  position: absolute;
+  display: block;
+  content: "";
+  top: 5px;
+  left: 0;
+  background-color: #d03f2f;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  transform: translateX(0);
+  transition: transform 0.4s;
+  z-index: 10;
+  cursor: pointer;
+}
+.calculator__header__toggle-switch .switcher .switch__inner:hover::after {
+  background-color: #f96b5b;
+}
+.calculator__display {
+  width: 54rem;
+  min-height: 12.8rem;
+  background-color: #181f33;
+  border-radius: 1rem;
+  margin-top: 3.56vh;
+  padding-right: 3.2rem;
+  padding-top: 4px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.calculator__display .calculator-output {
+  font-size: 4.8rem;
+  word-wrap: break-word;
+  word-break: break-all;
+  display: flex;
+  flex-direction: column;
+}
+.calculator__display .calculator-output .previous-operand {
+  font-size: 1.8rem;
+  color: #9b9b9b;
+  padding-bottom: 5px;
+  align-self: flex-end;
+}
+.calculator__buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2.4rem;
+  width: 54rem;
+  background: #242d44;
+  border-radius: 10px;
+  margin-top: 2.67vh;
+  padding: 3.56vh 27.5px;
+}
+.calculator__buttons button {
+  height: 6.4rem;
+  background: #eae3dc;
+  box-shadow: inset 0px -4px 0px #b3a497;
+  border-radius: 10px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  color: #434a59;
+  font-weight: 700;
+  font-size: 3.2rem;
+  line-height: 3.6rem;
+  letter-spacing: -0.533333px;
+}
+.calculator__buttons button:active {
+  transform: translateY(2px);
+  box-shadow: inset 0px -3px 0px #b3a497;
+}
+.calculator__buttons button:hover {
+  background: #fffffe;
+}
+.calculator__buttons .delete,
+.calculator__buttons .equal-sign,
+.calculator__buttons .reset {
+  font-size: 2rem;
+  line-height: 2.2rem;
+}
+.calculator__buttons .delete,
+.calculator__buttons .reset {
+  background-color: #647198;
+  box-shadow: inset 0px -4px 0px #414e73;
+  color: #ffffff;
+}
+.calculator__buttons .delete:active,
+.calculator__buttons .reset:active {
+  box-shadow: inset 0px -3px 0px #414e73;
+}
+.calculator__buttons .delete:hover,
+.calculator__buttons .reset:hover {
+  background-color: #a2b2e1;
+}
+.calculator__buttons .reset,
+.calculator__buttons .equal-sign {
+  font-size: 2rem;
+  line-height: 2.2rem;
+  letter-spacing: -0.333333px;
+}
+.calculator__buttons .reset {
+  grid-column: 1 / span 2;
+}
+.calculator__buttons .equal-sign {
+  grid-column: 3 / span 2;
+  background-color: #d03f2f;
+  box-shadow: inset 0px -4px 0px #873901;
+  color: #ffffff;
+}
+.calculator__buttons .equal-sign:active {
+  box-shadow: inset 0px -3px 0px #873901;
+}
+.calculator__buttons .equal-sign:hover {
+  background-color: #f96b5b;
+}
+
+@media only screen and (max-width: 600px) {
+  .calculator__header__title {
+    font-size: 2.8rem;
+  }
+  .calculator__display,
+  .calculator__buttons,
+  .calculator {
+    width: 32.7rem;
+  }
+  .calculator__display h1,
+  .calculator__buttons h1,
+  .calculator h1 {
+    font-size: 3.2rem;
+    padding: 2.6rem 0;
+  }
+  .calculator__buttons {
+    grid-gap: 1.3rem;
+    min-height: 42rem;
+  }
+  .calculator__buttons button {
+    min-width: 6rem;
+  }
+  .calculator__buttons .reset,
+  .calculator__buttons .equal-sign {
+    font-size: 1.6rem;
+    line-height: 1.8rem;
+    letter-spacing: -0.266667px;
+  }
+}
